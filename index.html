@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prism Studio — Enregistrements d'écran soignés</title>
+</head>
+<body>
+  <div id="app">
+
+    <!-- Écran d'accueil -->
+    <section id="screen-home" class="screen active">
+      <header class="topbar">
+        <div class="brand"><span class="brand-dot"></span> Prism Studio</div>
+      </header>
+      <div class="hero">
+        <h1>Des enregistrements d'écran<br /><span class="accent">dignes d'un studio</span></h1>
+        <p class="tagline">
+          Capturez votre écran, ajoutez des zooms fluides, un arrière-plan élégant,
+          et exportez une vidéo prête à partager. Le tout dans votre navigateur.
+        </p>
+        <div class="hero-actions">
+          <button id="btn-record" class="btn btn-primary btn-lg">
+            <span class="rec-dot"></span> Enregistrer l'écran
+          </button>
+          <button id="btn-import" class="btn btn-ghost btn-lg">Importer une vidéo</button>
+          <input id="input-import" type="file" accept="video/*" hidden />
+        </div>
+        <label class="mic-toggle">
+          <input id="chk-mic" type="checkbox" />
+          <span>Inclure le microphone</span>
+        </label>
+        <p id="home-error" class="error" hidden></p>
+      </div>
+    </section>
+
+    <!-- Écran d'enregistrement en cours -->
+    <section id="screen-recording" class="screen">
+      <div class="recording-panel">
+        <div class="rec-live"><span class="rec-dot pulsing"></span> Enregistrement en cours</div>
+        <div id="rec-timer" class="rec-timer">00:00</div>
+        <p class="rec-hint">Basculez vers la fenêtre à capturer. Revenez ici pour terminer.</p>
+        <button id="btn-stop" class="btn btn-danger btn-lg">Terminer l'enregistrement</button>
+      </div>
+    </section>
+
+    <!-- Écran d'édition -->
+    <section id="screen-editor" class="screen">
+      <header class="topbar">
+        <div class="brand"><span class="brand-dot"></span> Prism Studio</div>
+        <div class="topbar-actions">
+          <button id="btn-new" class="btn btn-ghost">Nouveau projet</button>
+          <button id="btn-export" class="btn btn-primary">Exporter</button>
+        </div>
+      </header>
+
+      <div class="editor-body">
+        <div class="preview-pane">
+          <div class="canvas-wrap">
+            <canvas id="preview" width="1920" height="1080"></canvas>
+          </div>
+          <div class="transport">
+            <button id="btn-play" class="btn btn-icon" title="Lecture / Pause (Espace)">▶</button>
+            <span id="time-label" class="time-label">00:00 / 00:00</span>
+            <div class="transport-spacer"></div>
+            <button id="btn-add-zoom" class="btn btn-secondary">+ Ajouter un zoom</button>
+          </div>
+          <div id="timeline" class="timeline"></div>
+        </div>
+
+        <aside class="sidebar">
+          <h2>Apparence</h2>
+
+          <div class="field">
+            <label>Arrière-plan</label>
+            <div id="gradient-grid" class="gradient-grid"></div>
+          </div>
+
+          <div class="field">
+            <label>Marge <span id="val-padding" class="val"></span></label>
+            <input id="ctl-padding" type="range" min="0" max="15" step="0.5" />
+          </div>
+
+          <div class="field">
+            <label>Coins arrondis <span id="val-radius" class="val"></span></label>
+            <input id="ctl-radius" type="range" min="0" max="60" step="1" />
+          </div>
+
+          <div class="field">
+            <label>Ombre <span id="val-shadow" class="val"></span></label>
+            <input id="ctl-shadow" type="range" min="0" max="100" step="1" />
+          </div>
+
+          <div id="zoom-panel" class="zoom-panel" hidden>
+            <h2>Zoom sélectionné</h2>
+            <p class="hint">Cliquez sur l'aperçu pour définir le point ciblé.</p>
+            <div class="field">
+              <label>Intensité <span id="val-zscale" class="val"></span></label>
+              <input id="ctl-zscale" type="range" min="1.2" max="3" step="0.1" />
+            </div>
+            <button id="btn-del-zoom" class="btn btn-danger-ghost">Supprimer ce zoom</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Modale d'export -->
+    <div id="export-modal" class="modal" hidden>
+      <div class="modal-card">
+        <h2>Exporter la vidéo</h2>
+        <div id="export-setup">
+          <div class="field">
+            <label>Résolution</label>
+            <select id="export-res">
+              <option value="1920">1080p (1920 × 1080)</option>
+              <option value="1280">720p (1280 × 720)</option>
+            </select>
+          </div>
+          <div class="modal-actions">
+            <button id="btn-export-cancel" class="btn btn-ghost">Annuler</button>
+            <button id="btn-export-start" class="btn btn-primary">Lancer l'export</button>
+          </div>
+        </div>
+        <div id="export-progress" hidden>
+          <p>Export en cours… la vidéo est rejouée en temps réel.</p>
+          <div class="progress"><div id="export-bar" class="progress-bar"></div></div>
+        </div>
+        <div id="export-done" hidden>
+          <p>Export terminé 🎉</p>
+          <div class="modal-actions">
+            <button id="btn-export-close" class="btn btn-ghost">Fermer</button>
+            <a id="btn-download" class="btn btn-primary" download="prism-studio.webm">Télécharger</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
