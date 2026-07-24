@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mikael Dan — Menuiserie &amp; agencement sur mesure</title>
-  <meta name="description" content="Mikael Dan, artisan menuisier : agencement intérieur, mobilier sur mesure et rénovation. Un savoir-faire soigné, des matériaux nobles, un accompagnement de A à Z." />
+  <title>Mikael Dan — Bijoux de luxe de seconde main | Vente, estimation &amp; rachat</title>
+  <meta name="description" content="Mikael Dan : bijoux de luxe de seconde main authentifiés (Cartier, Van Cleef &amp; Arpels, Bulgari…), estimation gratuite de vos bijoux et offre de rachat sous 48 h." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -14,10 +14,10 @@
       --surface: #FFFFFF;
       --ink: #1C1917;
       --ink-soft: #57534E;
-      --accent: #96684A;
-      --accent-ink: #7A5238;
-      --accent-soft: #F3ECE5;
-      --border: #E7E0D8;
+      --accent: #8A6A2F;
+      --accent-ink: #6F5526;
+      --accent-soft: #F5EFE3;
+      --border: #E8E1D4;
       --serif: "Cormorant", Georgia, serif;
       --sans: "Montserrat", system-ui, sans-serif;
       --space-1: 0.5rem;
@@ -79,7 +79,7 @@
     .nav-links a {
       text-decoration: none; font-size: 0.85rem; font-weight: 500;
       letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft);
-      padding: 0.75rem 0.25rem; transition: color 200ms ease;
+      padding: 0.75rem 0.25rem; transition: color 200ms ease; white-space: nowrap;
     }
     .nav-links a:hover { color: var(--accent-ink); }
     .site-header .nav-cta { display: none; }
@@ -109,6 +109,7 @@
       font-family: var(--sans); font-size: 0.85rem; font-weight: 600;
       letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none;
       border-radius: var(--radius); border: 1px solid transparent; cursor: pointer;
+      white-space: nowrap;
       transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
     }
     .btn-primary { background: var(--ink); color: #fff; }
@@ -156,8 +157,9 @@
     .hero-visual {
       aspect-ratio: 4 / 5; border-radius: var(--radius); box-shadow: var(--shadow);
       background:
-        linear-gradient(160deg, rgba(250, 249, 246, 0) 55%, rgba(28, 25, 23, 0.35)),
-        repeating-linear-gradient(90deg, #8A5F42 0 14%, #96684A 14% 30%, #7C543A 30% 46%, #A0714F 46% 64%, #8A5F42 64% 82%, #93664A 82% 100%);
+        radial-gradient(90% 70% at 70% 25%, rgba(250, 244, 224, 0.55), rgba(250, 244, 224, 0) 55%),
+        linear-gradient(160deg, rgba(250, 249, 246, 0) 55%, rgba(28, 25, 23, 0.45)),
+        linear-gradient(150deg, #CBAA62 0%, #A9873F 40%, #6F5526 78%, #4C3A18 100%);
       position: relative;
     }
     .hero-visual figcaption {
@@ -195,7 +197,7 @@
     .card h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 600; margin-bottom: 0.6rem; }
     .card p { font-size: 0.95rem; color: var(--ink-soft); font-weight: 300; }
 
-    /* Réalisations */
+    /* Collection */
     .work-grid { display: grid; gap: var(--space-3); grid-template-columns: 1fr; }
     @media (min-width: 48rem) { .work-grid { grid-template-columns: repeat(3, 1fr); } }
     .work-item { text-decoration: none; }
@@ -209,26 +211,26 @@
     .work-item:hover figure::after { background: rgba(28, 25, 23, 0.15); }
     .work-item h3 { font-family: var(--serif); font-size: 1.35rem; font-weight: 600; margin-top: var(--space-2); }
     .work-item p { font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); }
-    .ph-1 { background: linear-gradient(150deg, #B08968 0%, #7F5539 60%, #5C3D2B 100%); }
-    .ph-2 { background: linear-gradient(150deg, #D9CBB8 0%, #A98F73 55%, #6B5138 100%); }
-    .ph-3 { background: linear-gradient(150deg, #4A403A 0%, #6E5B4A 50%, #96684A 100%); }
+    .ph-1 { background: radial-gradient(80% 80% at 30% 25%, #E8CE8C 0%, #C3A054 45%, #8A6A2F 100%); }
+    .ph-2 { background: radial-gradient(85% 85% at 65% 30%, #FBF7EF 0%, #E4DACB 50%, #B4A68E 100%); }
+    .ph-3 { background: radial-gradient(85% 85% at 35% 30%, #4E4740 0%, #2E2A26 55%, #191614 100%); }
 
-    /* À propos */
+    /* La maison */
     .about { background: var(--ink); color: #F5F1EC; }
     .about-grid { display: grid; gap: var(--space-5); align-items: center; grid-template-columns: 1fr; }
     @media (min-width: 64rem) { .about-grid { grid-template-columns: 5fr 7fr; } }
     .about .portrait {
       aspect-ratio: 3 / 4; border-radius: var(--radius);
       background:
-        radial-gradient(120% 90% at 30% 20%, rgba(150, 104, 74, 0.55), rgba(28, 25, 23, 0) 60%),
+        radial-gradient(120% 90% at 30% 20%, rgba(138, 106, 47, 0.55), rgba(28, 25, 23, 0) 60%),
         linear-gradient(200deg, #3A322C, #241F1B);
       display: flex; align-items: center; justify-content: center;
     }
     .about .portrait span {
       font-family: var(--serif); font-size: 5rem; font-weight: 500; color: rgba(245, 241, 236, 0.5);
     }
-    .about .eyebrow { color: #CBA98E; }
-    .about .eyebrow::before { background: #CBA98E; }
+    .about .eyebrow { color: #D3B778; }
+    .about .eyebrow::before { background: #D3B778; }
     .about h2 {
       font-family: var(--serif); font-weight: 500;
       font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.15; margin-block: var(--space-2) var(--space-3);
@@ -240,7 +242,7 @@
       display: grid; gap: var(--space-2);
     }
     .about li { display: flex; gap: 0.75rem; align-items: flex-start; font-size: 0.95rem; }
-    .about li svg { flex: none; margin-top: 0.3rem; color: #CBA98E; }
+    .about li svg { flex: none; margin-top: 0.3rem; color: #D3B778; }
 
     /* Témoignages */
     .quote-grid { display: grid; gap: var(--space-3); grid-template-columns: 1fr; }
@@ -311,14 +313,14 @@
       </button>
       <nav aria-label="Navigation principale">
         <ul id="nav-menu" class="nav-links">
-          <li><a href="#services">Savoir-faire</a></li>
-          <li><a href="#realisations">Réalisations</a></li>
-          <li><a href="#apropos">L'atelier</a></li>
+          <li><a href="#services">Nos services</a></li>
+          <li><a href="#collection">La collection</a></li>
+          <li><a href="#maison">La maison</a></li>
           <li><a href="#avis">Avis</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-      <a class="btn btn-outline nav-cta" href="#contact">Demander un devis</a>
+      <a class="btn btn-outline nav-cta" href="#contact">Estimer un bijou</a>
     </div>
   </header>
 
@@ -327,24 +329,25 @@
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="container hero-grid">
         <div>
-          <p class="eyebrow">Artisan menuisier — depuis 2009</p>
-          <h1 id="hero-title">Le sur-mesure qui donne une <em>âme</em> à vos intérieurs</h1>
+          <p class="eyebrow">Bijoux de luxe de seconde main</p>
+          <h1 id="hero-title">Les belles pièces méritent une <em>seconde vie</em></h1>
           <p class="lede">
-            Agencement, mobilier et rénovation : chaque projet est dessiné, fabriqué et posé
-            à la main dans notre atelier, avec des matériaux choisis pour durer.
+            Cartier, Van Cleef &amp; Arpels, Bulgari, Tiffany&nbsp;&amp;&nbsp;Co.&nbsp;: chaque bijou est
+            authentifié, expertisé et remis en beauté avant de rejoindre la vitrine. Et si vous
+            souhaitez vendre, nous estimons votre bijou gratuitement, avec une offre de rachat sous 48&nbsp;h.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact">Demander un devis</a>
-            <a class="btn btn-outline" href="#realisations">Voir les réalisations</a>
+            <a class="btn btn-primary" href="#contact">Faire estimer mon bijou</a>
+            <a class="btn btn-outline" href="#collection">Découvrir la collection</a>
           </div>
           <ul class="hero-meta">
-            <li><strong>15&nbsp;ans</strong> <span>d'expérience</span></li>
-            <li><strong>220+</strong> <span>projets livrés</span></li>
-            <li><strong>100&nbsp;%</strong> <span>fabrication locale</span></li>
+            <li><strong>100&nbsp;%</strong> <span>pièces authentifiées</span></li>
+            <li><strong>48&nbsp;h</strong> <span>pour votre offre de rachat</span></li>
+            <li><strong>600+</strong> <span>bijoux expertisés</span></li>
           </ul>
         </div>
-        <figure class="hero-visual" role="img" aria-label="Texture de bois noble, évoquant les essences travaillées à l'atelier">
-          <figcaption>Chêne massif — atelier</figcaption>
+        <figure class="hero-visual" role="img" aria-label="Reflets dorés évoquant l'or 18 carats des pièces de la collection">
+          <figcaption>Or 18 ct &amp; diamants — collection</figcaption>
         </figure>
       </div>
     </section>
@@ -353,100 +356,101 @@
     <section class="services" id="services" aria-labelledby="services-title">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow">Savoir-faire</p>
-          <h2 id="services-title">Trois métiers, une même exigence</h2>
-          <p>Du premier croquis à la pose finale, un seul interlocuteur et un travail soigné dans les règles de l'art.</p>
+          <p class="eyebrow">Nos services</p>
+          <h2 id="services-title">Acheter, faire estimer, revendre</h2>
+          <p>Un seul interlocuteur, expert et discret, que vous cherchiez la pièce rare ou souhaitiez donner une nouvelle vie à vos bijoux.</p>
         </div>
         <div class="card-grid">
           <article class="card reveal">
             <div class="icon" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 21v-4l11-11 4 4L7 21H3Z"/><path d="m12 8 4 4"/><path d="m17 3 4 4"/>
+                <path d="M6 3h12l4 6-10 12L2 9Z"/><path d="M11 3 8 9l4 12 4-12-3-6"/><path d="M2 9h20"/>
               </svg>
             </div>
-            <h3>Agencement intérieur</h3>
-            <p>Dressings, bibliothèques, cuisines et rangements intégrés, pensés au millimètre pour épouser votre espace.</p>
+            <h3>Vente de pièces certifiées</h3>
+            <p>Bijoux signés et pièces vintage, contrôlés par nos experts, révisés en atelier et livrés avec certificat d'authenticité et écrin.</p>
           </article>
           <article class="card reveal">
             <div class="icon" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="4" y="6" width="16" height="12" rx="1"/><path d="M4 12h16"/><path d="M9 18v2m6-2v2M9 4v2m6-2v2"/>
+                <circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6m-3-3h6"/>
               </svg>
             </div>
-            <h3>Mobilier sur mesure</h3>
-            <p>Tables, consoles, têtes de lit et pièces uniques en bois massif, dessinées avec vous et signées de l'atelier.</p>
+            <h3>Estimation gratuite</h3>
+            <p>Envoyez photos et description, ou venez au showroom : nous estimons votre bijou gratuitement et sans engagement, au juste prix du marché.</p>
           </article>
           <article class="card reveal">
             <div class="icon" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/>
+                <rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M6 10v.01M18 14v.01"/>
               </svg>
             </div>
-            <h3>Rénovation</h3>
-            <p>Parquets, escaliers, menuiseries anciennes : nous restaurons et modernisons en respectant le caractère du lieu.</p>
+            <h3>Rachat &amp; dépôt-vente</h3>
+            <p>Offre ferme sous 48&nbsp;h et paiement immédiat et sécurisé, ou dépôt-vente pour valoriser au mieux les pièces d'exception.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Réalisations -->
-    <section id="realisations" aria-labelledby="work-title">
+    <!-- Collection -->
+    <section id="collection" aria-labelledby="collection-title">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow">Réalisations</p>
-          <h2 id="work-title">Quelques projets récents</h2>
-          <p>Un aperçu des chantiers livrés — photos à remplacer par celles des projets de Mikael.</p>
+          <p class="eyebrow">La collection</p>
+          <h2 id="collection-title">Actuellement en vitrine</h2>
+          <p>Un aperçu des pièces disponibles — photos à remplacer par celles des bijoux de Mikael.</p>
         </div>
         <div class="work-grid">
           <a class="work-item reveal" href="#contact">
-            <figure class="ph-1" role="img" aria-label="Aperçu du projet : cuisine en chêne, appartement haussmannien"></figure>
-            <h3>Cuisine en chêne massif</h3>
-            <p>Appartement haussmannien — Paris 9ᵉ</p>
+            <figure class="ph-1" role="img" aria-label="Aperçu : bracelet Love en or jaune, Cartier"></figure>
+            <h3>Bracelet Love — Cartier</h3>
+            <p>Or jaune 18 ct — état excellent</p>
           </a>
           <a class="work-item reveal" href="#contact">
-            <figure class="ph-2" role="img" aria-label="Aperçu du projet : bibliothèque toute hauteur sur mesure"></figure>
-            <h3>Bibliothèque toute hauteur</h3>
-            <p>Maison de ville — Vincennes</p>
+            <figure class="ph-2" role="img" aria-label="Aperçu : collier de perles de culture Akoya"></figure>
+            <h3>Collier perles Akoya</h3>
+            <p>Fermoir or blanc — années 1980</p>
           </a>
           <a class="work-item reveal" href="#contact">
-            <figure class="ph-3" role="img" aria-label="Aperçu du projet : escalier rénové en noyer"></figure>
-            <h3>Escalier rénové en noyer</h3>
-            <p>Longère — Normandie</p>
+            <figure class="ph-3" role="img" aria-label="Aperçu : bague solitaire diamant sur or blanc"></figure>
+            <h3>Solitaire diamant 1,2 ct</h3>
+            <p>Or blanc 18 ct — certificat GIA</p>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- À propos -->
-    <section class="about" id="apropos" aria-labelledby="about-title">
+    <!-- La maison -->
+    <section class="about" id="maison" aria-labelledby="about-title">
       <div class="container about-grid">
         <div class="portrait reveal" role="img" aria-label="Portrait de Mikael Dan (photo à insérer)">
           <span aria-hidden="true">MD</span>
         </div>
         <div>
-          <p class="eyebrow">L'atelier</p>
-          <h2 id="about-title">Mikael Dan, la main et la matière</h2>
+          <p class="eyebrow">La maison</p>
+          <h2 id="about-title">Mikael Dan, l'œil et la loupe</h2>
           <p>
-            Formé au compagnonnage, Mikael a fondé son atelier avec une conviction simple :
-            un intérieur réussi se joue dans les détails — un affleurement parfait, un veinage
-            choisi, une charnière invisible.
+            Expert en bijoux anciens et signés, Mikael a fondé la maison avec une conviction
+            simple&nbsp;: un bijou de seconde main n'est pas un compromis, c'est une histoire
+            qui continue — à condition d'en garantir l'authenticité et l'état.
           </p>
           <p>
-            Chaque projet commence par une visite et une écoute attentive, se poursuit par des plans
-            précis, et se termine par une pose soignée, sans sous-traitance.
+            Chaque pièce passe entre ses mains&nbsp;: contrôle des poinçons, des pierres et des
+            numéros de série, révision par un atelier joaillier, puis mise en vitrine au juste prix.
+            Côté rachat, l'estimation est transparente, argumentée et sans aucune obligation.
           </p>
           <ul>
             <li>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-              Bois massifs certifiés issus de forêts gérées durablement
+              Authentification par expert gemmologue diplômé, certificats à l'appui
             </li>
             <li>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-              Devis détaillé et calendrier tenus, garantie décennale
+              Prix indexés sur le marché et offre de rachat ferme sous 48&nbsp;h
             </li>
             <li>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-              Finitions naturelles : huiles, cires et vernis à l'eau
+              Discrétion, paiement sécurisé et rendez-vous privés au showroom
             </li>
           </ul>
         </div>
@@ -462,12 +466,12 @@
         </div>
         <div class="quote-grid">
           <blockquote class="reveal">
-            <p>« Un travail d'orfèvre. La bibliothèque épouse le mur au millimètre et le chêne est magnifique. Délais tenus, chantier impeccable. »</p>
-            <footer><strong>Claire &amp; Thomas B.</strong> — Vincennes</footer>
+            <p>« J'ai fait estimer la bague de ma grand-mère&nbsp;: explication détaillée, offre reçue en 24&nbsp;h, paiement le jour du rendez-vous. Sérieux et délicatesse. »</p>
+            <footer><strong>Nathalie R.</strong> — Paris</footer>
           </blockquote>
           <blockquote class="reveal">
-            <p>« Mikael a su transformer notre cuisine sans dénaturer l'appartement. De vrais conseils, une vraie signature. On recommande les yeux fermés. »</p>
-            <footer><strong>Sophie L.</strong> — Paris 9ᵉ</footer>
+            <p>« Un bracelet Cartier introuvable en boutique, trouvé ici authentifié, comme neuf et à un prix juste. L'écrin et le certificat font toute la différence. »</p>
+            <footer><strong>Julien M.</strong> — Boulogne</footer>
           </blockquote>
         </div>
       </div>
@@ -478,9 +482,9 @@
       <div class="container contact-grid">
         <div>
           <div class="section-head reveal" style="margin-bottom: 0;">
-            <p class="eyebrow">Contact</p>
-            <h2 id="contact-title">Parlons de votre projet</h2>
-            <p>Décrivez votre idée en quelques lignes : nous revenons vers vous sous 48&nbsp;h avec un premier avis et, si besoin, une visite.</p>
+            <p class="eyebrow">Estimation</p>
+            <h2 id="contact-title">Faites estimer votre bijou</h2>
+            <p>Décrivez votre pièce (marque, matière, état, année si connue)&nbsp;: nous revenons vers vous sous 48&nbsp;h avec une première estimation, puis une offre ferme après examen.</p>
           </div>
           <ul class="contact-info">
             <li>
@@ -493,7 +497,7 @@
             </li>
             <li>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-              <div><span>Atelier</span> <strong>12 rue des Artisans, 75011 Paris</strong><br />Sur rendez-vous du lundi au samedi</div>
+              <div><span>Showroom</span> <strong>12 rue de la Paix, 75002 Paris</strong><br />Sur rendez-vous du mardi au samedi</div>
             </li>
           </ul>
         </div>
@@ -515,12 +519,13 @@
             <p class="form-hint">Facultatif — si vous préférez être rappelé.</p>
           </div>
           <div class="field">
-            <label for="f-message">Votre projet <span class="req" aria-hidden="true">*</span></label>
-            <textarea id="f-message" name="message" required placeholder="Ex. : bibliothèque sur mesure d'environ 3 m dans un salon…"></textarea>
+            <label for="f-message">Votre bijou <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="f-message" name="message" required placeholder="Ex. : bague Trinity Cartier, or trois tons, taille 52, achetée en 2015, très bon état…"></textarea>
+            <p class="form-hint">Après l'envoi, vous pourrez joindre des photos en répondant à notre e-mail — elles accélèrent beaucoup l'estimation.</p>
           </div>
           <p class="form-hint">Les champs marqués d'un astérisque (*) sont obligatoires.</p>
           <div>
-            <button class="btn btn-primary" type="submit">Envoyer la demande</button>
+            <button class="btn btn-primary" type="submit">Demander mon estimation</button>
           </div>
           <p class="form-hint" id="form-status" role="status" aria-live="polite"></p>
         </form>
@@ -530,8 +535,8 @@
 
   <footer class="site-footer">
     <div class="container footer-bar">
-      <p>© <span id="year">2026</span> Mikael Dan — Menuiserie &amp; agencement. Tous droits réservés.</p>
-      <p>SIRET 000 000 000 00000 — Assurance décennale</p>
+      <p>© <span id="year">2026</span> Mikael Dan — Bijoux de luxe de seconde main. Tous droits réservés.</p>
+      <p>SIRET 000 000 000 00000 — Registre des revendeurs d'objets mobiliers</p>
     </div>
   </footer>
 
@@ -586,9 +591,10 @@
         'E-mail : ' + data.get('email'),
         'Téléphone : ' + (data.get('phone') || 'non renseigné'),
         '',
+        'Description du bijou :',
         data.get('message'),
       ].join('\n');
-      const subject = 'Demande de devis — ' + data.get('name');
+      const subject = 'Demande d’estimation — ' + data.get('name');
       window.location.href = 'mailto:contact@mikaeldan.fr?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
       status.textContent = 'Votre logiciel de messagerie va s’ouvrir avec votre demande pré-remplie.';
     });
