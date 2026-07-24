@@ -244,18 +244,44 @@
     .about li { display: flex; gap: 0.75rem; align-items: flex-start; font-size: 0.95rem; }
     .about li svg { flex: none; margin-top: 0.3rem; color: #D3B778; }
 
-    /* Témoignages */
-    .quote-grid { display: grid; gap: var(--space-3); grid-template-columns: 1fr; }
-    @media (min-width: 48rem) { .quote-grid { grid-template-columns: repeat(2, 1fr); } }
-    blockquote {
-      border: 1px solid var(--border); border-radius: var(--radius);
-      background: var(--surface); padding: var(--space-4);
+    /* Témoignages — adapté du composant « Minimal Testimonial » (21st.dev, jatin-yadav05) */
+    .testimonial-min { max-width: 42rem; }
+    .tm-quotes { position: relative; min-height: 13rem; margin-bottom: var(--space-4); }
+    @media (min-width: 48rem) { .tm-quotes { min-height: 9rem; } }
+    .tm-quote {
+      position: absolute; inset: 0; margin: 0;
+      font-family: var(--serif); font-size: clamp(1.35rem, 3vw, 1.75rem);
+      font-style: italic; line-height: 1.5;
+      opacity: 0; transform: translateY(12px); filter: blur(4px);
+      transition: opacity 500ms ease, transform 500ms ease, filter 500ms ease;
+      pointer-events: none;
     }
-    blockquote p {
-      font-family: var(--serif); font-size: 1.35rem; font-style: italic; line-height: 1.5;
+    .tm-quote.active { opacity: 1; transform: none; filter: none; }
+    .tm-author-row { display: flex; align-items: center; gap: var(--space-3); }
+    .tm-avatars { display: flex; }
+    .tm-avatar {
+      width: 2.75rem; height: 2.75rem; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-family: var(--sans); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em;
+      background: var(--accent-soft); color: var(--accent-ink);
+      border: 2px solid var(--bg); cursor: pointer;
+      transition: background-color 250ms ease, color 250ms ease, transform 250ms ease;
     }
-    blockquote footer { margin-top: var(--space-3); font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); }
-    blockquote footer strong { color: var(--ink); font-weight: 600; }
+    .tm-avatar + .tm-avatar { margin-left: -0.5rem; }
+    .tm-avatar:hover { transform: translateY(-2px); }
+    .tm-avatar.active { background: var(--ink); color: #fff; transform: scale(1.08); z-index: 1; }
+    .tm-divider { width: 1px; height: 2rem; background: var(--border); flex: none; }
+    .tm-authors { position: relative; flex: 1; min-height: 3rem; }
+    .tm-author {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; justify-content: center;
+      opacity: 0; transform: translateX(-8px);
+      transition: opacity 400ms ease, transform 400ms ease;
+      pointer-events: none;
+    }
+    .tm-author.active { opacity: 1; transform: none; }
+    .tm-author strong { font-weight: 600; font-size: 0.95rem; }
+    .tm-author span { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); }
 
     /* Contact */
     .contact { background: var(--surface); border-top: 1px solid var(--border); }
@@ -464,15 +490,25 @@
           <p class="eyebrow">Ils nous font confiance</p>
           <h2 id="avis-title">Paroles de clients</h2>
         </div>
-        <div class="quote-grid">
-          <blockquote class="reveal">
-            <p>« J'ai fait estimer la bague de ma grand-mère&nbsp;: explication détaillée, offre reçue en 24&nbsp;h, paiement le jour du rendez-vous. Sérieux et délicatesse. »</p>
-            <footer><strong>Nathalie R.</strong> — Paris</footer>
-          </blockquote>
-          <blockquote class="reveal">
-            <p>« Un bracelet Cartier introuvable en boutique, trouvé ici authentifié, comme neuf et à un prix juste. L'écrin et le certificat font toute la différence. »</p>
-            <footer><strong>Julien M.</strong> — Boulogne</footer>
-          </blockquote>
+        <div class="testimonial-min reveal">
+          <div class="tm-quotes" aria-live="polite">
+            <p class="tm-quote active">« J'ai fait estimer la bague de ma grand-mère&nbsp;: explication détaillée, offre reçue en 24&nbsp;h, paiement le jour du rendez-vous. Sérieux et délicatesse. »</p>
+            <p class="tm-quote">« Un bracelet Cartier introuvable en boutique, trouvé ici authentifié, comme neuf et à un prix juste. L'écrin et le certificat font toute la différence. »</p>
+            <p class="tm-quote">« Vendre des bijoux auxquels on tient n'est pas anodin. Mikael a pris le temps, tout expliqué, et l'offre était au-dessus de deux autres estimations. »</p>
+          </div>
+          <div class="tm-author-row">
+            <div class="tm-avatars" role="tablist" aria-label="Choisir un témoignage">
+              <button class="tm-avatar active" role="tab" aria-selected="true" aria-label="Avis de Nathalie R.">NR</button>
+              <button class="tm-avatar" role="tab" aria-selected="false" aria-label="Avis de Julien M.">JM</button>
+              <button class="tm-avatar" role="tab" aria-selected="false" aria-label="Avis d'Isabelle T.">IT</button>
+            </div>
+            <div class="tm-divider" aria-hidden="true"></div>
+            <div class="tm-authors">
+              <div class="tm-author active"><strong>Nathalie R.</strong> <span>Estimation &amp; rachat — Paris</span></div>
+              <div class="tm-author"><strong>Julien M.</strong> <span>Achat — Boulogne</span></div>
+              <div class="tm-author"><strong>Isabelle T.</strong> <span>Rachat — Versailles</span></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -571,6 +607,20 @@
     } else {
       document.querySelectorAll('.reveal').forEach((el) => el.classList.add('visible'));
     }
+
+    // Témoignages : bascule au clic (adapté du composant 21st.dev « Minimal Testimonial »)
+    const tmQuotes = document.querySelectorAll('.tm-quote');
+    const tmAuthors = document.querySelectorAll('.tm-author');
+    document.querySelectorAll('.tm-avatar').forEach((btn, index, all) => {
+      btn.addEventListener('click', () => {
+        all.forEach((b, i) => {
+          b.classList.toggle('active', i === index);
+          b.setAttribute('aria-selected', String(i === index));
+        });
+        tmQuotes.forEach((q, i) => q.classList.toggle('active', i === index));
+        tmAuthors.forEach((a, i) => a.classList.toggle('active', i === index));
+      });
+    });
 
     // Formulaire : ouvre le client mail avec la demande pré-remplie
     // (à brancher sur un service type Formspree/Netlify Forms pour un envoi serveur)
