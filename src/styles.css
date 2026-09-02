@@ -530,3 +530,90 @@ select {
   background: linear-gradient(90deg, var(--accent), #60a5fa);
   transition: width 0.2s;
 }
+
+/* --- Bienvenue (première visite) --- */
+
+.welcome-card {
+  position: relative;
+  width: min(480px, 92vw);
+  text-align: left;
+  background:
+    radial-gradient(ellipse 90% 60% at 50% 0%, rgba(139, 92, 246, 0.18), transparent),
+    var(--bg-2);
+}
+
+.welcome-card h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.welcome-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  padding: 5px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-dim);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.modal-close:hover {
+  background: var(--bg-3);
+  color: var(--text);
+}
+
+.welcome-steps {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.welcome-steps li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-dim);
+  line-height: 1.4;
+}
+
+.welcome-step-num {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.welcome-card .modal-actions {
+  justify-content: stretch;
+}
+.welcome-card .modal-actions .btn {
+  flex: 1;
+}

@@ -135,6 +135,28 @@
       </div>
     </div>
 
+    <!-- Modale de bienvenue (première visite) -->
+    <div id="welcome-modal" class="modal" hidden>
+      <div class="modal-card welcome-card">
+        <button id="btn-welcome-close" class="modal-close" type="button" aria-label="Fermer">×</button>
+        <div class="welcome-badge"><span class="brand-dot"></span> Prism Studio</div>
+        <h2>Bienvenue dans Prism Studio 👋</h2>
+        <p>
+          Capturez votre écran, ajoutez des zooms fluides et un arrière-plan élégant,
+          puis exportez une vidéo dignes d'un studio — le tout dans votre navigateur,
+          sans rien installer.
+        </p>
+        <ul class="welcome-steps">
+          <li><span class="welcome-step-num">1</span> Cliquez sur « Enregistrer l'écran » pour lancer une capture.</li>
+          <li><span class="welcome-step-num">2</span> Ajoutez des zooms fluides et soignez l'apparence dans l'éditeur.</li>
+          <li><span class="welcome-step-num">3</span> Exportez votre vidéo prête à partager.</li>
+        </ul>
+        <div class="modal-actions">
+          <button id="btn-welcome-start" class="btn btn-primary btn-lg">C'est parti</button>
+        </div>
+      </div>
+    </div>
+
   </div>
   <script type="module" src="/src/main.ts"></script>
 </body>

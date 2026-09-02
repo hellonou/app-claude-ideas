@@ -323,6 +323,43 @@ $("#btn-export").addEventListener("click", () => {
 $("#btn-export-cancel").addEventListener("click", () => (exportModal.hidden = true));
 $("#btn-export-close").addEventListener("click", () => (exportModal.hidden = true));
 
+// --- Bienvenue (première visite) --------------------------------------------
+
+const WELCOME_KEY = "prism-welcome-seen";
+const welcomeModal = $("#welcome-modal");
+
+function dismissWelcome(): void {
+  welcomeModal.hidden = true;
+  try {
+    localStorage.setItem(WELCOME_KEY, "1");
+  } catch {
+    /* Mode privé : on ne persiste pas, l'app continue de fonctionner. */
+  }
+}
+
+function maybeShowWelcome(): void {
+  let alreadySeen = false;
+  try {
+    alreadySeen = localStorage.getItem(WELCOME_KEY) !== null;
+  } catch {
+    /* Stockage inaccessible : on affiche la bienvenue sans planter. */
+  }
+  if (!alreadySeen) welcomeModal.hidden = false;
+}
+
+$("#btn-welcome-start").addEventListener("click", dismissWelcome);
+$("#btn-welcome-close").addEventListener("click", dismissWelcome);
+welcomeModal.addEventListener("click", (e) => {
+  if (e.target === welcomeModal) dismissWelcome();
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && !welcomeModal.hidden) dismissWelcome();
+});
+
+maybeShowWelcome();
+
+// --- Export (suite) ---------------------------------------------------------
+
 $("#btn-export-start").addEventListener("click", async () => {
   const width = Number($<HTMLSelectElement>("#export-res").value);
   const height = Math.round((width * 9) / 16);
